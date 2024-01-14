@@ -1,0 +1,12 @@
+<form action="/todos/{{ todo._id }}/edit" method="POST" class="flex flex-col">
+  <div class="w-full grid grid-cols-3 gap-4 my-2">
+    <input type="text" placeholder="name" name="name" value="{{todo.name}}" class="col-span-2">
+    <select name="type" id="type" value="{{todo.type}}">
+      <option value="home">Home</option>
+      <option value="work">Work</option>
+      <option value="others">Others</option>
+    </select>
+  </div>
+  <textarea name="description" id="description" rows="2" class="resize-none">{{todo.description}}</textarea>
+  <button type="submit">Save</button>
+</form>
