@@ -2,6 +2,8 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
+import exphbs from "express-handlebars";
+
 if (process.env.NODE_ENV !== "production") {
   dotenv.config();
 }
@@ -22,8 +24,15 @@ db.once("open", () => {
   console.log("mongodb connected!");
 });
 
+app.engine("hbs", exphbs.engine({ 
+  defaultLayout: "main", 
+  extname: ".hbs" 
+})); 
+app.set('view engine', '.hbs')
+
 app.get("/", (req, res) => {
-  res.send("hello world");
+  // res.send("hello world");
+  res.render('index')
 });
 
 app.listen(port, () => {
