@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 
 import exphbs from "express-handlebars";
 
+import Todo from "./models/todo.js";
+
 if (process.env.NODE_ENV !== "production") {
   dotenv.config();
 }
@@ -32,7 +34,11 @@ app.set('view engine', '.hbs')
 
 app.get("/", (req, res) => {
   // res.send("hello world");
-  res.render('index')
+  // res.render('index')
+  Todo.find()
+    .lean()
+    .then(todos => res.render('index', {todos}))
+    .catch(error => console.error(error))
 });
 
 app.listen(port, () => {
