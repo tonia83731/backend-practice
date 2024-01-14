@@ -9,6 +9,9 @@ const todoSchema = new Schema({
   type: {
     type: String,
   },
+  description: {
+    type: String,
+  },
   done: {
     type: Boolean,
     default: false,

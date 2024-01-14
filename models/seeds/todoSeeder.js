@@ -22,6 +22,7 @@ db.once("open", () => {
     Todo.create({
       name: `My todo name-${i}`,
       type: "work",
+      description: `This is todolist item No.${i}`,
     });
   }
   console.log('done')
