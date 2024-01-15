@@ -19,7 +19,7 @@
     <span class="text-xs bg-blue-700 text-stone-50 px-2 ml-3 mr-6">{{this.type}}</span>
     <a href="./todos/{{this._id}}" class="bg-lime-400 text-slate-500 px-2 py-1 rounded">detail</a>
     <a href="./todos/{{this._id}}/edit" class="bg-green-400 text-slate-500 px-2 py-1 rounded">edit</a>
-    <form action="./todos/{{ this._id }}/delete" method="POST" class="inline bg-emerald-400 text-slate-500 px-2 py-1 rounded">
+    <form action="./todos/{{ this._id }}?_method=DELETE" method="POST" class="inline bg-emerald-400 text-slate-500 px-2 py-1 rounded">
       <button type="submit">delete</button>
     </form>
   </li>

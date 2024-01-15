@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 
 import exphbs from "express-handlebars";
 import bodyParser from "body-parser";
+import methodOverride from 'method-override'
 
 import Todo from "./models/todo.js";
 
@@ -33,6 +34,7 @@ app.engine("hbs", exphbs.engine({
 })); 
 app.set('view engine', '.hbs')
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(methodOverride('_method'))
 
 app.get("/", (req, res) => {
   // res.send("hello world");
@@ -72,7 +74,7 @@ app.get('/todos/:id/edit', (req, res) => {
     .then((todo) => res.render('edit', {todo}))
     .catch(error => console.log(error))
 })
-app.post('/todos/:id/edit', (req, res) => {
+app.put('/todos/:id', (req, res) => {
   const id = req.params.id
   const { name, type, description, isDone } = req.body
   return Todo.findById(id)
@@ -86,7 +88,7 @@ app.post('/todos/:id/edit', (req, res) => {
     .then(() => res.redirect(`/todos/${id}`))
     .catch(error => console.log(error))
 })
-app.post("/todos/:id/delete", (req, res) => {
+app.delete("/todos/:id", (req, res) => {
   const id = req.params.id;
   return Todo.findById(id)
     .then((todo) => todo.deleteOne())
