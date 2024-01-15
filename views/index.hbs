@@ -1,22 +1,25 @@
 <form action="/todos" method="POST" class="flex flex-col">
   <div class="w-full grid grid-cols-3 gap-4 my-2">
-    <input type="text" placeholder="name" name="name" class="col-span-2">
-    <select name="type" id="type">
+    <input type="text" placeholder="name" name="name" class="col-span-2 rounded">
+    <select name="type" id="type" class="rounded">
       <option value="home">Home</option>
       <option value="work">Work</option>
       <option value="others">Others</option>
     </select>
   </div>
-  <textarea name="description" id="description" rows="2" class="resize-none"></textarea>
-  <button type="submit">Create</button>
+  <textarea name="description" id="description" rows="2" class="resize-none rounded"></textarea>
+  <button type="submit" class="bg-cyan-600 text-stome-50 rounded my-2 shadow">Create</button>
 </form>
+<div class="border-t-2 border-dotted my-4"></div>
 <ul>
   {{#each todos}}
-  <li>
-    {{this.name}} {{this.type}}
-    <a href="./todos/{{this._id}}">detail</a>
-    <a href="./todos/{{this._id}}/edit">edit</a>
-    <form action="./todos/{{ this._id }}/delete" method="POST" class="inline">
+  <li class="py-2">
+    <input type="checkbox" name="isDone" {{#if this.done}}checked{{/if}} class="mr-2" disabled>
+    {{this.name}} 
+    <span class="text-xs bg-blue-700 text-stone-50 px-2 ml-3 mr-6">{{this.type}}</span>
+    <a href="./todos/{{this._id}}" class="bg-lime-400 text-slate-500 px-2 py-1 rounded">detail</a>
+    <a href="./todos/{{this._id}}/edit" class="bg-green-400 text-slate-500 px-2 py-1 rounded">edit</a>
+    <form action="./todos/{{ this._id }}/delete" method="POST" class="inline bg-emerald-400 text-slate-500 px-2 py-1 rounded">
       <button type="submit">delete</button>
     </form>
   </li>

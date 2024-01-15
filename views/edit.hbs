@@ -1,6 +1,9 @@
 <form action="/todos/{{ todo._id }}/edit" method="POST" class="flex flex-col">
   <div class="w-full grid grid-cols-3 gap-4 my-2">
-    <input type="text" placeholder="name" name="name" value="{{todo.name}}" class="col-span-2">
+    <div class="col-span-2 grid grid-cols-[20px_1fr] gap-2 content-center">
+      <input type="checkbox" name="isDone" {{#if todo.done}}checked{{/if}}>
+      <input type="text" placeholder="name" name="name" value="{{todo.name}}">
+    </div>
     <select name="type" id="type" value="{{todo.type}}">
       <option value="home">Home</option>
       <option value="work">Work</option>
@@ -8,5 +11,5 @@
     </select>
   </div>
   <textarea name="description" id="description" rows="2" class="resize-none">{{todo.description}}</textarea>
-  <button type="submit">Save</button>
+  <button type="submit" class="bg-cyan-600 text-stome-50 rounded my-2 shadow">Save</button>
 </form>

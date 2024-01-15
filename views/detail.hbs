@@ -1,7 +1,10 @@
-<p>{{ todo.name }}</p>
-<p>{{ todo.description }}</p>
-<a href="./todos/{{todo._id}}/edit">edit</a>
-<form action="./todos/{{ todo._id }}/delete" method="POST" class="inline">
+<div class="flex items-center">
+  <input type="checkbox" name="isDone" class="mr-2" {{#if todo.done}}checked{{/if}} disabled>
+  <p class="font-bold">{{ todo.name }}</p>
+</div>
+<p class="my-4">{{ todo.description }}</p>
+<a href="./todos/{{todo._id}}/edit" class="bg-green-400 text-slate-500 px-2 py-1 rounded">edit</a>
+<form action="./todos/{{ todo._id }}/delete" method="POST" class="inline bg-emerald-400 text-slate-500 px-2 py-1 rounded">
   <button type="submit">delete</button>
 </form>
-<a href="/">back</a>
+<a href="/" class="underline text-slate-500 ml-2">back</a>
