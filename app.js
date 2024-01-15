@@ -39,6 +39,7 @@ app.get("/", (req, res) => {
   // res.render('index')
   Todo.find()
     .lean()
+    .sort({ _id: 'asc' })
     .then(todos => res.render('index', {todos}))
     .catch(error => console.error(error))
 });
