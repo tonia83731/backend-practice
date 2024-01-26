@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-import dotenv from "dotenv";
+// import mongoose from "mongoose";
+// import dotenv from "dotenv";
 
 import Todo from "../todo.js";
 import db from "../../config/mongoose.js";
