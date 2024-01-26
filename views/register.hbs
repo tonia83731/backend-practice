@@ -1,1 +1,31 @@
-<h2>Register</h2>
+<div class="w-full h-screen grid grid-cols-3 grid-rows-[0.5fr_1fr_0.5fr]">
+  <div class="col-start-2 row-start-2">
+    <h1 class="text-2xl font-bold text-center">Register</h1>
+    <form action="/users/register" method="POST" class="mt-8">
+      <div class="flex flex-col">
+        <label for="name">Name</label>
+        <input type="text" class="name rounded-lg border border-slate-400" name="name" placeholder="Name here...">
+      </div>
+      <div class="flex flex-col mt-2">
+        <label for="email">Email</label>
+        <input type="email" class="email rounded-lg border border-slate-400" name="email" placeholder="Email here...">
+      </div>
+      <div class="flex flex-col mt-2">
+        <label for="password">Password</label>
+        <input type="password" class="password border border-slate-400 rounded-lg" name="password"
+          placeholder="Password here...">
+      </div>
+      <div class="flex flex-col mt-2">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" class="confirmPassword border border-slate-400 rounded-lg" name="confirmPassword"
+          placeholder="Confirm password...">
+      </div>
+      <button class="w-full bg-blue-500 text-stone-50 rounded-lg py-2 mt-4">Register</button>
+      <div class="flex justify-end mt-1">
+        {{!-- <a href="/auth/facebook" class="underline">Facebook Login</a>
+        <p class="px-2">•</p> --}}
+        <p class="">Have An Account? <a href="/users/login" class="underline">Login</a></p>
+      </div>
+    </form>
+  </div>
+</div>
