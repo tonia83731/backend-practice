@@ -4,21 +4,21 @@
     <form action="/users/register" method="POST" class="mt-8">
       <div class="flex flex-col">
         <label for="name">Name</label>
-        <input type="text" class="name rounded-lg border border-slate-400" name="name" placeholder="Name here...">
+        <input type="text" class="name rounded-lg border border-slate-400" name="name" placeholder="Name here..." value="{{ name }}">
       </div>
       <div class="flex flex-col mt-2">
         <label for="email">Email</label>
-        <input type="email" class="email rounded-lg border border-slate-400" name="email" placeholder="Email here...">
+        <input type="email" class="email rounded-lg border border-slate-400" name="email" placeholder="Email here..." value="{{ email }}">
       </div>
       <div class="flex flex-col mt-2">
         <label for="password">Password</label>
         <input type="password" class="password border border-slate-400 rounded-lg" name="password"
-          placeholder="Password here...">
+          placeholder="Password here..." value="{{ password }}">
       </div>
       <div class="flex flex-col mt-2">
         <label for="confirmPassword">Confirm Password</label>
         <input type="password" class="confirmPassword border border-slate-400 rounded-lg" name="confirmPassword"
-          placeholder="Confirm password...">
+          placeholder="Confirm password..." value="{{ confirmPassword }}">
       </div>
       <button class="w-full bg-blue-500 text-stone-50 rounded-lg py-2 mt-4">Register</button>
       <div class="flex justify-end mt-1">
