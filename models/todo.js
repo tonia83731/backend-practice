@@ -15,6 +15,13 @@ const todoSchema = new Schema({
   done: {
     type: Boolean,
     default: false,
+  },
+  userId: {
+    // 去參照User的ObjectId
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    index: true,
+    required: true,
   }
 })
 
