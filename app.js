@@ -1,6 +1,7 @@
 // https://www.youtube.com/watch?v=zWl-fb1Ih7A
 
 import express from "express";
+import session from "express-session";
 // import mongoose from "mongoose";
 // import dotenv from "dotenv";
 
@@ -37,6 +38,11 @@ app.engine("hbs", exphbs.engine({
   extname: ".hbs" 
 })); 
 app.set('view engine', '.hbs')
+app.use(session({
+  secret: 'ThisIsMySecret',
+  resave: false,
+  saveUninitialized: true
+}))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 app.use(router)
