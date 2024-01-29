@@ -11,6 +11,7 @@ import methodOverride from 'method-override'
 
 // import Todo from "./models/todo.js";
 import router from './routes/index.js'
+import usePassport from './config/passport.js'
 import "./config/mongoose.js";
 
 // if (process.env.NODE_ENV !== "production") {
@@ -46,6 +47,8 @@ app.use(session({
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 app.use(router)
+
+usePassport(app)
 
 // app.get("/", (req, res) => {
 //   // res.send("hello world");
