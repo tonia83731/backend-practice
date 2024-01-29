@@ -27,8 +27,17 @@
 </head>
 <body class="">
   <header class="w-full h-11 px-4 bg-sky-200 flex justify-between items-center">
-    <a href="/" class="font-bold text-xl">Todo List</a>
-    <a href="/users/login" class=" px-2 py-1 border border-sky-400 rounded text-sky-400 hover:text-sky-600 hover:border-sky-600">Login</a>
+    <a href="/" class="font-bold text-xl">
+      {{#if isAuthenticated}} {{user.name}}'s {{/if}}
+      Todo List
+    </a>
+    {{#if isAuthenticated}}
+      <a href="/users/logout"
+        class=" px-2 py-1 border border-sky-400 rounded text-sky-400 hover:text-sky-600 hover:border-sky-600">Logout</a>
+    {{else}}
+      <a href="/users/login"
+        class=" px-2 py-1 border border-sky-400 rounded text-sky-400 hover:text-sky-600 hover:border-sky-600">Login</a>
+    {{/if}}
   </header>
   <div class="px-8 py-4">
     {{{ body }}}

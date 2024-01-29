@@ -47,6 +47,12 @@ app.use(session({
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 usePassport(app);
+app.use((req, res, next) => {
+  // 你可以在這裡 console.log(req.user) 等資訊來觀察
+  res.locals.isAuthenticated = req.isAuthenticated();
+  res.locals.user = req.user;
+  next();
+});
 app.use(router)
 
 
