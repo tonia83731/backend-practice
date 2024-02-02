@@ -26,7 +26,7 @@
   <title>Todo List</title>
 </head>
 <body class="">
-  <header class="w-full h-11 px-4 bg-sky-200 flex justify-between items-center">
+  <header class="w-full h-11 px-4 bg-sky-200 fixed top-0 left-0 flex justify-between items-center">
     <a href="/" class="font-bold text-xl">
       {{#if isAuthenticated}} {{user.name}}'s {{/if}}
       Todo List
@@ -39,7 +39,7 @@
         class=" px-2 py-1 border border-sky-400 rounded text-sky-400 hover:text-sky-600 hover:border-sky-600">Login</a>
     {{/if}}
   </header>
-  <div class="px-8 py-4">
+  <div class="px-8 pt-20 pb-4">
     {{{ body }}}
   </div>
 </body>
