@@ -1,4 +1,5 @@
 import passport from "passport";
+import FacebookStrategy from "passport-facebook"
 import bcrypt from "bcryptjs"
 import local from 'passport-local';
 import User from "../models/user.js";
@@ -23,6 +24,35 @@ export default (app) => {
       })
       .catch(error => done(error, false))
   }))
+  passport.use(
+    new FacebookStrategy(
+      {
+        clientID: process.env.FACEBOOK_ID,
+        clientSecret: process.env.FACEBOOK_SECRET,
+        callbackURL: process.env.FACEBOOK_CALLBACK,
+        profileFields: ["email", "displayName"],
+      },
+      (accessToken, refreshToken, profile, done) => {
+        const { name, email } = profile._json;
+        User.findOne({ email }).then((user) => {
+          if (user) return done(null, user);
+          const randomePassword = Math.random().toString(36).slice(-8);
+          bcrypt
+            .genSalt(10)
+            .then((salt) => bcrypt.hash(randomePassword, salt))
+            .then((hash) =>
+              User.create({
+                name,
+                email,
+                password: hash,
+              })
+            )
+            .then((user) => done(null, user))
+            .catch((error) => done(error, false));
+        });
+      }
+    )
+  );
   // 設定序列化和反序列化
   passport.serializeUser((user, done) => {
     done(null, user.id)

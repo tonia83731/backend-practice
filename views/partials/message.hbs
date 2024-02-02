@@ -1,12 +1,14 @@
 {{#if success_msg}}
-  <div class="bg-green-200 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
-    <span class="block sm:inline">{{{success_msg}}}</span>
-    <button>
-      <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
-        <svg class="fill-current h-6 w-6 text-green-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-          <title>Close</title>
-          <path
-            d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
+  <div role="alert" class="relative flex w-full px-4 py-4 text-base text-green-700 bg-green-200 rounded-lg font-regular"
+    data-dismissible="alert">
+    <div class="mr-12 ">{{{success_msg }}}</div>
+    <button data-dismissible-target="alert"
+      class="!absolute  top-3 right-3 h-8 max-h-[32px] w-8 max-w-[32px] select-none rounded-lg text-center align-middle font-sans text-xs font-medium uppercase text-green-500 transition-all hover:text-green-700 active:text-green-700 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+      type="button">
+      <span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6"
+          stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
         </svg>
       </span>
     </button>
@@ -15,14 +17,19 @@
 
 
 {{#if warning_msg}}
-<div class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative" role="alert">
-  <span class="block sm:inline">{{{warning_msg}}}</span>
-  <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
-    <svg class="fill-current h-6 w-6 text-yellow-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-      <title>Close</title>
-      <path
-        d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
-    </svg>
-  </span>
+<div role="alert" class="relative flex w-full px-4 py-4 text-base bg-yellow-100 text-yellow-700 rounded-lg font-regular"
+  data-dismissible="alert">
+  <div class="mr-12 ">{{{ warning_msg }}}</div>
+  <button data-dismissible-target="alert"
+    class="!absolute  top-3 right-3 h-8 max-h-[32px] w-8 max-w-[32px] select-none rounded-lg text-center align-middle font-sans text-xs font-medium uppercase text-yellow-500 transition-all hover:text-yellow-700 active:text-yellow-700 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+    type="button">
+    <span class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6"
+        stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </span>
+  </button>
 </div>
+
 {{/if}}
