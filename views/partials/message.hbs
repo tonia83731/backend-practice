@@ -33,3 +33,15 @@
 </div>
 
 {{/if}}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      const closeButton = document.querySelector('[data-dismissible-target="alert"]');
+      const alertContainer = document.querySelector('[role="alert"]');
+
+      closeButton.addEventListener('click', function () {
+        // Hide or remove the flash message container
+        alertContainer.style.display = 'none';
+      });
+    });
+</script>
